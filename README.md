@@ -45,11 +45,45 @@ python3 obsidian_ocr.py
 - 图片建议从桌面拖入，不要直接从照片 App 内部路径拖入
 - 每个目标 .md 文件中预置 ## 手写笔记 区块可精确控制插入位置
 
+## MCP 版本（Claude Code 集成）
+
+`ocr_mcp_server.py` 是基于 [Model Context Protocol](https://modelcontextprotocol.io) 的升级版本，可直接集成到 Claude Code CLI，让 Claude 作为 AI agent 直接调用 OCR 和写入功能。
+
+### 注册 MCP server
+
+```bash
+claude mcp add obsidian-ocr --scope user python3 ~/HandNote2Obsidian/ocr_mcp_server.py
+```
+
+### 可用工具
+
+| 工具 | 说明 |
+|------|------|
+| `ocr_image` | 识别图片中的手写文字（中/英/韩） |
+| `save_to_obsidian` | 将识别文字和图片保存到指定 Obsidian 笔记 |
+
+### 使用方法
+
+注册后，直接在 Claude Code 中用自然语言描述，例如：
+
+> `/Users/yidi/Downloads/IMG_2321.HEIC 帮我把这张图存入 雪的练习生`
+
+Claude 会自动调用 OCR 识别后写入对应笔记，无需任何额外操作。
+
+### 配置
+
+在 `~/HandNote2Obsidian/.env` 中填入：
+
+```
+GEMINI_API_KEY=你的Gemini_API_KEY
+```
+
+---
+
 ## 后续优化方向
 
 - 做成双击运行的 Mac App，不需要开终端
 - 支持批量处理多张图片
 - 写入前显示识别结果供用户确认和修改
-- v2 agent+MCP
 
 
