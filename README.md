@@ -7,7 +7,6 @@
 - 调用 Google Gemini 3 Flash API 识别手写中英韩文
 - 支持 HEIC 格式自动转换
 - 关键词模糊搜索目标笔记
-- 写入前人工确认与修改识别结果
 - 图片自动归档至 Obsidian vault attachments
 - 识别内容以 Markdown 格式插入指定 `## 手写笔记` 区块
 
@@ -45,3 +44,12 @@ python3 obsidian_ocr.py
 - 需要 VPN 才能访问 Gemini API
 - 图片建议从桌面拖入，不要直接从照片 App 内部路径拖入
 - 每个目标 .md 文件中预置 ## 手写笔记 区块可精确控制插入位置
+
+## 后续优化方向
+
+- 做成双击运行的 Mac App，不需要开终端
+- 支持批量处理多张图片
+- 写入前显示识别结果供用户确认和修改
+- v2 agent+MCP
+
+
